@@ -20,7 +20,7 @@ public class AlunoDAO implements IAlunoDAO{
     public Aluno create(Aluno aluno) {
         try (Connection connection = ConnectionFactory.getConnection()) {
             String query = "INSERT into Aluno " +
-                    "(nome, telefone, maioridade, sexo, id_curso)" +
+                    "(nome, telefone, maior_idade, sexo, id_curso)" +
                     "values (?,?,?,?,?)";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, aluno.getNome());
@@ -40,7 +40,7 @@ public class AlunoDAO implements IAlunoDAO{
     public Aluno update(Aluno aluno) {
         try (Connection connection = ConnectionFactory.getConnection()) {
             String query = "UPDATE aluno SET " +
-                    "nome = ?, maioridade = ?, id_curso = ?, telefone = ?, sexo = ? " +
+                    "nome = ?, maior_idade = ?, id_curso = ?, telefone = ?, sexo = ? " +
                     "WHERE matricula = ?;";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, aluno.getNome());
@@ -84,7 +84,7 @@ public class AlunoDAO implements IAlunoDAO{
             aluno.setMatricula(resultSet.getLong("matricula"));
             aluno.setNome(resultSet.getString("nome"));
             aluno.setTelefone(resultSet.getString("telefone"));
-            aluno.setMaiorIdade(resultSet.getBoolean("maioridade"));
+            aluno.setMaiorIdade(resultSet.getBoolean("maior_idade"));
             aluno.setId_curso(Integer.parseInt(resultSet.getString("id_curso")));
             aluno.setSexo(resultSet.getString("sexo"));
         } catch (SQLException e) {
