@@ -9,7 +9,7 @@ public class Aluno {
     public int getId_curso() {
         return id_curso;
     }
-
+    private String sexo;
     private int id_curso;
 
     public void setId_curso(int id_curso) {
@@ -24,7 +24,7 @@ public class Aluno {
         this.sexo = sexo;
     }
 
-    private String sexo;
+
 
     public Long getMatricula() {
         return matricula;

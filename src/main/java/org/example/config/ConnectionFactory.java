@@ -9,7 +9,7 @@ public class ConnectionFactory {
     public static Connection getConnection(){
         try{
             return DriverManager.getConnection(
-                    "jdbc:postgresql://localhost:5432/Curso",
+                    "jdbc:postgresql://localhost:5434/Curso1",
                     "postgres",
                     "2003"
             );
